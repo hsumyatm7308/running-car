@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Running Car</title>
+        <style>
+          body{
+            height: 100vh;
+            background-color: rgb(17, 18, 18);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+          }
+
+          .container{
+            width: 100%;
+            height: 300px;
+            background-color: rgb(23, 23, 63);
+            position: relative;
+          }
+
+          .container::before{
+            content: '';
+            width: 30%;
+            height: 10%;
+            background-color: rgb(155, 180, 232);
+            overflow: hidden;
+
+            transform: skewX(20deg);
+
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            animation: tmove 1s linear infinite;
+            transition: all .01s;
+          }
+
+          .container::after{
+            content: '';
+            width: 30%;
+            height: 10%;
+            background-color: rgb(135, 203, 182);
+
+            transform: skewX(-20deg);
+            position: absolute;
+            right: 10%;
+            bottom: 0;
+
+            animation: bmove 1s linear infinite;
+            transition: all .1s;
+          }
+
+          img{
+            position: absolute;
+            right: 100px;
+            top: 20px;
+          }
+
+          .line-container{
+            width: 100%;
+            height: 100%;
+           
+            display: flex;            
+            justify-content: center;
+            align-items: center;
+            
+          }
+
+          .line{
+            width: 200px;
+            height: 1px;
+            background-color: #fff;
+            display: block;
+            margin: 0 100px;    
+            transform: translate(0);
+
+            animation: line 1s linear infinite;
+            transition: all .1s;
+          }
+
+          @keyframes tmove {
+            to{
+               left: 100%;
+            }
+          }
+          @keyframes bmove {
+            to{
+               right: 100%;
+            }
+          }
+
+          @keyframes line {
+            to{
+               transform: translate(100%);
+            }
+          }
+
+          
+          
+        </style>
+    </head>
+    <body>
+
+        <div class="container">
+             <img src="./car.png" alt="" width="250px">
+
+             <div class="line-container">
+
+             <div><span  class="line"></span></div>
+             <div><span  class="line"></span></div>
+             <div><span  class="line"></span></div>
+             <div><span  class="line"></span></div>
+             <div><span  class="line"></span></div>
+            </div>
+        </div>
+        
+    </body>
+</html>
